@@ -1,67 +1,358 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SCULPT METHOD</title>
-  <meta name="description" content="Programmes premium homme et femme : sèche, prise de masse propre, recomposition et programme personnalisé." />
-  <style>
-    :root{--bg:#050505;--panel:#0d0d0d;--line:rgba(255,255,255,.08);--text:#f5f5f5;--muted:#cfcfcf;--white:#fff;--shadow:0 14px 34px rgba(0,0,0,.38);--max:1180px}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top left, rgba(255,255,255,.08), transparent 22%),radial-gradient(circle at 82% 8%, rgba(255,255,255,.05), transparent 18%),linear-gradient(180deg,#111 0%,#070707 35%,#050505 100%)}
-    a{text-decoration:none;color:inherit}.container{width:min(var(--max), calc(100% - 34px)); margin:0 auto}
-    .navwrap{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(8,8,8,.58);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}.brand small{display:block;text-transform:uppercase;letter-spacing:.24em;color:#d8d8d8;font-weight:700;font-size:10px;margin-bottom:6px}.brand strong{display:block;font-size:24px;font-weight:900;letter-spacing:.16em}.links{display:flex;gap:18px;flex-wrap:wrap;color:#d7d7d7;font-weight:600;font-size:14px}
-    .hero{padding:78px 0 58px}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:24px}.panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.018));border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow)}
-    .hero-main{padding:44px;min-height:560px;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:#dcdcdc;font-weight:800}.eyebrow::before{content:"";width:36px;height:1px;background:rgba(255,255,255,.4)}
-    h1{font-size:clamp(42px,7vw,90px);line-height:.92;letter-spacing:-.05em;margin:18px 0 18px}.lead{font-size:18px;line-height:1.75;color:#d5d5d5;max-width:760px;margin:0}
-    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border-radius:999px;font-weight:800;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn-main{background:#fff;color:#111}.btn-alt{border:1px solid var(--line);background:rgba(255,255,255,.03)}
-    .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}.mini{padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}.mini strong{display:block;margin-bottom:6px}.mini span{color:var(--muted);font-size:14px;line-height:1.55}
-    .hero-side{padding:24px}.inside{height:100%;border-radius:24px;border:1px solid var(--line);padding:24px;background:radial-gradient(circle at top right,rgba(255,255,255,.07),transparent 28%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02))}.logo{width:94px;height:94px;border-radius:24px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.03));font-size:34px;font-weight:900;margin-bottom:22px}.inside h2{margin:0 0 10px;font-size:36px;line-height:1.02}.inside p{margin:0;color:#d5d5d5;line-height:1.75}
-    .price-boxes{display:grid;gap:12px;margin-top:22px}.price-pill{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-weight:800}.price-pill span:last-child{font-size:24px}
-    .section{padding:88px 0}.heading{max-width:860px;margin-bottom:28px}.heading h2{font-size:clamp(30px,4vw,54px);line-height:1;margin:12px 0 14px}.heading p{margin:0;color:#d0d0d0;font-size:17px;line-height:1.75}
-    .features,.faqgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature,.faq,.contact-box{padding:24px;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid var(--line);box-shadow:var(--shadow)}
-    .num{width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#fff;color:#111;font-weight:900;margin-bottom:14px}.feature p,.faq p,.contact-box p{margin:0;color:#cfcfcf;line-height:1.72}
-    .programs{display:grid;gap:20px}.program{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;padding:26px;border-radius:30px;border:1px solid var(--line);background:rgba(255,255,255,.03);box-shadow:var(--shadow)}
-    .tag{display:inline-flex;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;margin-bottom:14px}.program h3{margin:0 0 10px;font-size:32px;line-height:1.05}.program p{margin:0;color:#d2d2d2;line-height:1.75}.program ul{margin:18px 0 0;padding-left:18px}.program li{margin:8px 0}
-    .side{padding:22px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));display:flex;flex-direction:column;justify-content:space-between}.price{font-size:50px;font-weight:900;margin-bottom:8px}.small{color:#d3d3d3;line-height:1.7;font-size:14px}
-    .bundle{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;padding:30px;border-radius:32px;border:1px solid var(--line);background:radial-gradient(circle at 88% 14%,rgba(255,255,255,.08),transparent 24%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:var(--shadow)}.bundle h3{margin:0 0 10px;font-size:36px}.bundle p{margin:0;color:#d1d1d1;line-height:1.75}.bundle ul{margin:18px 0 0;padding-left:18px}.bundle-price{text-align:right}.old{color:#979797;text-decoration:line-through}.now{font-size:60px;line-height:1;font-weight:900;margin:8px 0 16px}
-    .contact-mail{display:inline-flex;margin-top:18px;padding:14px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:700}
-    .footer{padding:34px 0 54px;border-top:1px solid var(--line);margin-top:26px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#c9c9c9}
-    @media(max-width:1024px){.hero-grid,.program,.bundle{grid-template-columns:1fr}.features,.faqgrid{grid-template-columns:1fr 1fr}.bundle-price{text-align:left}}
-    @media(max-width:720px){.links{display:none}.hero{padding-top:34px}.hero-main,.hero-side,.feature,.program,.bundle,.faq,.mini,.contact-box{padding:20px}.mini-grid,.features,.faqgrid{grid-template-columns:1fr}h1{font-size:44px}.program h3{font-size:26px}.bundle h3{font-size:30px}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>SCULPT METHOD | Programmes de musculation, nutrition et transformation physique</title>
+<meta name="description" content="SCULPT METHOD propose des programmes de musculation, nutrition et transformation physique pour homme et femme : sèche, prise de masse propre, recomposition corporelle, packs complets et programme personnalisé." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="programme musculation, programme nutrition, transformation physique, sèche homme, sèche femme, prise de masse propre, recomposition corporelle, programme personnalisé, musculation homme, musculation femme, coaching physique, pack musculation, programme fitness" />
+<meta name="author" content="SCULPT METHOD" />
+<meta name="theme-color" content="#050505" />
+<meta name="language" content="fr" />
+<meta name="revisit-after" content="7 days" />
+
+<link rel="canonical" href="https://sculptmethod.fr/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="SCULPT METHOD" />
+<meta property="og:title" content="SCULPT METHOD | Programmes de musculation, nutrition et transformation physique" />
+<meta property="og:description" content="Programmes homme et femme pour la sèche, la prise de masse propre, la recomposition corporelle et le suivi personnalisé." />
+<meta property="og:url" content="https://sculptmethod.fr/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SCULPT METHOD | Programmes de musculation, nutrition et transformation physique" />
+<meta name="twitter:description" content="Programmes premium homme et femme : sèche, prise de masse propre, recomposition et programme personnalisé." />
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"Organization",
+"name":"SCULPT METHOD",
+"url":"https://sculptmethod.fr/",
+"email":"sculptmethod.contact@gmail.com",
+"sameAs":[
+"https://sculptmethod.fr/"
+]
+}
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebSite",
+"name":"SCULPT METHOD",
+"url":"https://sculptmethod.fr/",
+"inLanguage":"fr-FR",
+"description":"Programmes de musculation, nutrition et transformation physique pour homme et femme."
+}
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"Service",
+"serviceType":"Programmes de musculation et nutrition",
+"provider":{
+"@type":"Organization",
+"name":"SCULPT METHOD",
+"url":"https://sculptmethod.fr/"
+},
+"areaServed":"FR",
+"availableLanguage":"fr",
+"description":"Programmes de transformation physique, sèche, prise de masse propre, recomposition corporelle et programme personnalisé pour homme et femme."
+}
+</script>
+
+<style>
+:root{--bg:#050505;--panel:#0d0d0d;--line:rgba(255,255,255,.08);--text:#f5f5f5;--muted:#cfcfcf;--white:#fff;--shadow:0 14px 34px rgba(0,0,0,.38);--max:1180px}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top left, rgba(255,255,255,.08), transparent 22%),radial-gradient(circle at 82% 8%, rgba(255,255,255,.05), transparent 18%),linear-gradient(180deg,#111 0%,#070707 35%,#050505 100%)}
+a{text-decoration:none;color:inherit}.container{width:min(var(--max), calc(100% - 34px)); margin:0 auto}
+.navwrap{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(8,8,8,.58);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}.brand small{display:block;text-transform:uppercase;letter-spacing:.24em;color:#d8d8d8;font-weight:700;font-size:10px;margin-bottom:6px}.brand strong{display:block;font-size:24px;font-weight:900;letter-spacing:.16em}.links{display:flex;gap:18px;flex-wrap:wrap;color:#d7d7d7;font-weight:600;font-size:14px}
+.hero{padding:78px 0 58px}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:24px}.panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.018));border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow)}
+.hero-main{padding:44px;min-height:560px;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:#dcdcdc;font-weight:800}.eyebrow::before{content:"";width:36px;height:1px;background:rgba(255,255,255,.4)}
+h1{font-size:clamp(42px,7vw,90px);line-height:.96;letter-spacing:-.05em;margin:18px 0 18px}.lead{font-size:18px;line-height:1.75;color:#d5d5d5;max-width:760px;margin:0}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border-radius:999px;font-weight:800;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn-main{background:#fff;color:#111}.btn-alt{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}.mini{padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}.mini strong{display:block;margin-bottom:6px}.mini span{color:var(--muted);font-size:14px;line-height:1.55}
+.hero-side{padding:24px}.inside{height:100%;border-radius:24px;border:1px solid var(--line);padding:24px;background:radial-gradient(circle at top right,rgba(255,255,255,.07),transparent 28%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02))}.logo{width:94px;height:94px;border-radius:24px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.03));font-size:34px;font-weight:900;margin-bottom:22px}.inside h2{margin:0 0 10px;font-size:36px;line-height:1.02}.inside p{margin:0;color:#d5d5d5;line-height:1.75}
+.price-boxes{display:grid;gap:12px;margin-top:22px}.price-pill{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-weight:800}.price-pill span:last-child{font-size:24px}
+.section{padding:88px 0}.heading{max-width:860px;margin-bottom:28px}.heading h2{font-size:clamp(30px,4vw,54px);line-height:1;margin:12px 0 14px}.heading p{margin:0;color:#d0d0d0;font-size:17px;line-height:1.75}
+.features,.faqgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature,.faq,.contact-box,.seo-box{padding:24px;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid var(--line);box-shadow:var(--shadow)}
+.num{width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#fff;color:#111;font-weight:900;margin-bottom:14px}.feature p,.faq p,.contact-box p,.seo-box p{margin:0;color:#cfcfcf;line-height:1.72}
+.programs{display:grid;gap:20px}.program{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;padding:26px;border-radius:30px;border:1px solid var(--line);background:rgba(255,255,255,.03);box-shadow:var(--shadow)}
+.tag{display:inline-flex;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;margin-bottom:14px}.program h3{margin:0 0 10px;font-size:32px;line-height:1.05}.program p{margin:0;color:#d2d2d2;line-height:1.75}.program ul{margin:18px 0 0;padding-left:18px}.program li{margin:8px 0}
+.side{padding:22px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));display:flex;flex-direction:column;justify-content:space-between}.price{font-size:50px;font-weight:900;margin-bottom:8px}.small{color:#d3d3d3;line-height:1.7;font-size:14px}
+.bundle{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;padding:30px;border-radius:32px;border:1px solid var(--line);background:radial-gradient(circle at 88% 14%,rgba(255,255,255,.08),transparent 24%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:var(--shadow)}.bundle h3{margin:0 0 10px;font-size:36px}.bundle p{margin:0;color:#d1d1d1;line-height:1.75}.bundle ul{margin:18px 0 0;padding-left:18px}.bundle-price{text-align:right}.old{color:#979797;text-decoration:line-through}.now{font-size:60px;line-height:1;font-weight:900;margin:8px 0 16px}
+.contact-mail{display:inline-flex;margin-top:18px;padding:14px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:700}
+.footer{padding:34px 0 54px;border-top:1px solid var(--line);margin-top:26px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#c9c9c9}
+@media(max-width:1024px){.hero-grid,.program,.bundle{grid-template-columns:1fr}.features,.faqgrid{grid-template-columns:1fr 1fr}.bundle-price{text-align:left}}
+@media(max-width:720px){.links{display:none}.hero{padding-top:34px}.hero-main,.hero-side,.feature,.program,.bundle,.faq,.mini,.contact-box,.seo-box{padding:20px}.mini-grid,.features,.faqgrid{grid-template-columns:1fr}h1{font-size:44px}.program h3{font-size:26px}.bundle h3{font-size:30px}}
+</style>
 </head>
 <body>
 <div class="navwrap"><div class="container nav"><div class="brand"><small>Transformation physique</small><strong>SCULPT METHOD</strong></div><div class="links"><a href="#method">Méthode</a><a href="#programs-men">Programmes homme</a><a href="#programs-women">Programmes femme</a><a href="#custom">Personnalisé</a><a href="#bundle">Pack homme</a><a href="#bundle-women">Pack femme</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></div></div>
-<header class="hero" id="top"><div class="container hero-grid"><div class="panel hero-main"><div><div class="eyebrow">Sport • nutrition • structure</div><h1>Sculpte ton<br>physique.<br>Simplement.</h1><p class="lead">Des programmes premium conçus pour sécher proprement, prendre du muscle sans devenir gras ou transformer ton physique avec une méthode claire, fluide et professionnelle.</p><div class="cta"><a class="btn btn-main" href="#programs-men">Voir les programmes</a><a class="btn btn-alt" href="#bundle">Découvrir le pack complet</a></div></div><div class="mini-grid"><div class="mini"><strong>Entraînement détaillé</strong><span>Séances, exercices, repos, cardio et progression.</span></div><div class="mini"><strong>Nutrition complète</strong><span>Repères adaptés selon taille, poids et objectif.</span></div><div class="mini"><strong>Suivi simple</strong><span>Poids, mensurations, énergie et corrections.</span></div></div></div><div class="panel hero-side"><div class="inside"><div class="logo">SM</div><div class="eyebrow">Premium</div><h2>Transforme ton physique avec une vraie méthode.</h2><p>Une gamme complète homme et femme, avec des programmes clairs, structurés et conçus pour passer à l’action avec un cadre sérieux.</p><div class="price-boxes"><div class="price-pill"><span>Programme seul</span><span>29€</span></div><div class="price-pill"><span>Pack complet</span><span>59€</span></div><div class="price-pill"><span>Programme personnalisé homme / femme</span><span>39€</span></div></div></div></div></div></header>
 
-<section class="section" id="method"><div class="container"><div class="heading"><div class="eyebrow">La méthode</div><h2>Clair, complet, efficace.</h2><p>Chaque programme est pensé pour être agréable à lire, facile à suivre et suffisamment détaillé pour avancer avec une vraie structure.</p></div><div class="features"><div class="feature"><div class="num">1</div><h3>Lisible</h3><p>Un design propre et aéré pour donner envie de lire et d’appliquer le programme jusqu’au bout.</p></div><div class="feature"><div class="num">2</div><h3>Complet</h3><p>Exercices, séries, répétitions, temps de repos, cardio, repas, substitutions et suivi.</p></div><div class="feature"><div class="num">3</div><h3>Structuré</h3><p>Une méthode simple à comprendre pour rester concentré sur l’objectif sans se perdre.</p></div></div></div></section>
+<header class="hero" id="top">
+<div class="container hero-grid">
+<div class="panel hero-main">
+<div>
+<div class="eyebrow">Sport • nutrition • structure</div>
+<h1>Transforme ton physique avec un programme structuré, clair et efficace.</h1>
+<p class="lead">SCULPT METHOD propose des programmes de musculation, nutrition et transformation physique pour homme et femme, avec des packs complets et un programme personnalisé selon ton profil, ton niveau, ton objectif, ta taille et ton poids.</p>
+<div class="cta">
+<a class="btn btn-main" href="#programs-men" title="Voir les programmes homme et femme SCULPT METHOD">Voir les programmes</a>
+<a class="btn btn-alt" href="#bundle" title="Découvrir le pack complet SCULPT METHOD">Découvrir le pack complet</a>
+</div>
+</div>
+<div class="mini-grid">
+<div class="mini"><strong>Entraînement détaillé</strong><span>Séances, exercices, repos, cardio, progression et structure claire.</span></div>
+<div class="mini"><strong>Nutrition complète</strong><span>Repères adaptés selon taille, poids, objectif et évolution physique.</span></div>
+<div class="mini"><strong>Suivi simple</strong><span>Poids, mensurations, énergie, ajustements et méthode facile à suivre.</span></div>
+</div>
+</div>
+<div class="panel hero-side">
+<div class="inside">
+<div class="logo">SM</div>
+<div class="eyebrow">Premium</div>
+<h2>Programmes de musculation et nutrition pour homme et femme.</h2>
+<p>Une gamme complète conçue pour la sèche, la prise de masse propre, la recomposition corporelle et la transformation physique avec un cadre sérieux, lisible et professionnel.</p>
+<div class="price-boxes">
+<div class="price-pill"><span>Programme seul</span><span>29€</span></div>
+<div class="price-pill"><span>Pack complet</span><span>59€</span></div>
+<div class="price-pill"><span>Programme personnalisé homme / femme</span><span>39€</span></div>
+</div>
+</div>
+</div>
+</div>
+</header>
 
-<section class="section" id="programs-men"><div class="container"><div class="heading"><div class="eyebrow">Programmes homme</div><h2>Choisis ton objectif</h2><p>Trois programmes premium pensés pour répondre à trois besoins précis.</p></div><div class="programs">
-<article class="program"><div><div class="tag">CUT METHOD</div><h3>Sèche / perte de gras</h3><p>Pour perdre du gras proprement, garder un maximum de muscle et retrouver un physique plus sec.</p><ul><li>8 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio détaillé</li><li>Nutrition selon taille et poids</li><li>Suivi hebdomadaire</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">Un programme clair pour sécher proprement avec méthode et régularité.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/YwMPt">Acheter CUT METHOD</a></div></div></article>
-<article class="program"><div><div class="tag">LEAN BULK METHOD</div><h3>Prise de masse propre</h3><p>Pour construire du muscle avec une prise de masse contrôlée, un surplus propre et un vrai cadre.</p><ul><li>12 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio léger</li><li>Nutrition selon taille et poids</li><li>Suivi complet</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">Une vraie approche pour prendre du muscle sans perdre le contrôle de sa ligne.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/18ilW">Acheter LEAN BULK METHOD</a></div></div></article>
-<article class="program"><div><div class="tag">RECOMP METHOD</div><h3>Transformation physique</h3><p>Pour améliorer visuellement le physique sans entrer dans une phase extrême trop dure à tenir.</p><ul><li>10 semaines</li><li>4 séances / semaine</li><li>Cardio modéré</li><li>Nutrition selon taille et poids</li><li>Suivi hebdomadaire</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">L’option idéale pour transformer visuellement son physique avec une méthode durable.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/GQqhF">Acheter RECOMP METHOD</a></div></div></article>
-</div></div></section>
+<section class="section" id="method">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">La méthode</div>
+<h2>Clair, complet, efficace.</h2>
+<p>Chaque programme SCULPT METHOD est pensé pour être agréable à lire, facile à suivre et suffisamment détaillé pour avancer avec une vraie structure en musculation, nutrition et transformation physique.</p>
+</div>
+<div class="features">
+<div class="feature"><div class="num">1</div><h3>Lisible</h3><p>Un design propre et aéré pour donner envie de lire et d’appliquer le programme jusqu’au bout.</p></div>
+<div class="feature"><div class="num">2</div><h3>Complet</h3><p>Exercices, séries, répétitions, temps de repos, cardio, repas, substitutions, progression et suivi.</p></div>
+<div class="feature"><div class="num">3</div><h3>Structuré</h3><p>Une méthode simple à comprendre pour rester concentré sur l’objectif sans se perdre.</p></div>
+</div>
+</div>
+</section>
 
-<section class="section" id="programs-women"><div class="container"><div class="heading"><div class="eyebrow">Programmes femme</div><h2>Une version adaptée au profil féminin</h2><p>Calories de départ, repères de poids et structure adaptés, tout en gardant le même niveau de qualité et de clarté.</p></div><div class="programs">
-<article class="program"><div><div class="tag">FEMME CUT METHOD</div><h3>Sèche / perte de gras femme</h3><p>Pour sécher proprement avec une structure adaptée au profil féminin, sans tomber dans l’excès.</p><ul><li>8 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio détaillé</li><li>Repères adaptés selon taille et poids</li><li>Suivi hebdomadaire</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">Une vraie base pour perdre du gras et affiner le physique avec méthode.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/Vhvij">Acheter FEMME CUT METHOD</a></div></div></article>
-<article class="program"><div><div class="tag">FEMME LEAN BULK METHOD</div><h3>Prise de masse propre femme</h3><p>Pour construire du muscle proprement avec des repères adaptés, sans prise de gras inutile.</p><ul><li>12 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio léger</li><li>Repères adaptés selon taille et poids</li><li>Suivi complet</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">Une approche claire pour développer le physique de façon propre et progressive.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/jFWNK">Acheter FEMME LEAN BULK METHOD</a></div></div></article>
-<article class="program"><div><div class="tag">FEMME RECOMP METHOD</div><h3>Transformation physique femme</h3><p>Pour transformer le physique de manière visuelle, progressive et durable avec un cadre simple.</p><ul><li>10 semaines</li><li>4 séances / semaine</li><li>Cardio modéré</li><li>Repères adaptés selon taille et poids</li><li>Suivi hebdomadaire</li></ul></div><div class="side"><div><div class="price">29€</div><div class="small">Idéal pour recomposer le physique et améliorer la silhouette avec méthode.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/XS1Bn">Acheter FEMME RECOMP METHOD</a></div></div></article>
-</div></div></section>
+<section class="section" id="programs-men">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">Programmes homme</div>
+<h2>Choisis ton objectif</h2>
+<p>Trois programmes premium homme pensés pour la perte de gras, la prise de muscle et la transformation physique.</p>
+</div>
+<div class="programs">
+<article class="program">
+<div>
+<div class="tag">CUT METHOD</div>
+<h3>Sèche / perte de gras</h3>
+<p>Pour perdre du gras proprement, garder un maximum de muscle et retrouver un physique plus sec avec un programme de musculation et nutrition structuré.</p>
+<ul><li>8 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio détaillé</li><li>Nutrition selon taille et poids</li><li>Suivi hebdomadaire</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">Un programme clair pour sécher proprement avec méthode, régularité et structure.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/YwMPt" title="Acheter CUT METHOD homme">Acheter CUT METHOD</a></div>
+</div>
+</article>
 
-<section class="section" id="custom"><div class="container"><div class="heading"><div class="eyebrow">Programme personnalisé homme / femme</div><h2>Un programme adapté à ton profil</h2><p>Pour les personnes qui veulent une base plus directe selon leur taille, leur poids, leur objectif, leur niveau, ou une situation spécifique comme un surpoids, une reprise ou un besoin plus ciblé.</p></div><div class="programs">
-<article class="program"><div><div class="tag">PERSONNALISÉ</div><h3>Programme personnalisé homme / femme</h3><p>Un cadre personnalisé construit à partir de tes informations pour t’orienter plus précisément.</p><ul><li>Adaptation selon taille et poids</li><li>Prise en compte du niveau et de l’objectif</li><li>Possibilité de préciser si tu es en surpoids, en reprise, ou si tu as un point faible spécifique</li><li>Échange et finalisation par e-mail</li></ul></div><div class="side"><div><div class="price">39€</div><div class="small">Après achat, l’échange se fait par mail pour récupérer les informations nécessaires et construire le programme, pour homme ou pour femme.</div></div><div class="cta"><a class="btn btn-main" href="https://payhip.com/b/oa9WR">Acheter le programme personnalisé</a></div></div></article>
-</div></div></section>
+<article class="program">
+<div>
+<div class="tag">LEAN BULK METHOD</div>
+<h3>Prise de masse propre</h3>
+<p>Pour construire du muscle avec une prise de masse contrôlée, un surplus propre et un vrai cadre en musculation et nutrition.</p>
+<ul><li>12 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio léger</li><li>Nutrition selon taille et poids</li><li>Suivi complet</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">Une vraie approche pour prendre du muscle sans perdre le contrôle de sa ligne.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/18ilW" title="Acheter LEAN BULK METHOD homme">Acheter LEAN BULK METHOD</a></div>
+</div>
+</article>
 
-<section class="section" id="bundle"><div class="container"><div class="heading"><div class="eyebrow">Pack complet homme</div><h2>Les 3 programmes homme en un seul pack</h2><p>Le meilleur rapport valeur / prix pour avoir l’ensemble de la méthode homme.</p></div><div class="bundle"><div><h3>SCULPT METHOD COMPLETE PACK</h3><p>Regroupe CUT METHOD, LEAN BULK METHOD et RECOMP METHOD dans une seule offre premium.</p><ul><li>CUT METHOD</li><li>LEAN BULK METHOD</li><li>RECOMP METHOD</li></ul></div><div class="bundle-price"><div class="old">87€</div><div class="now">59€</div><a class="btn btn-main" href="https://payhip.com/b/AR5tU">Acheter le pack complet</a></div></div></div></section>
+<article class="program">
+<div>
+<div class="tag">RECOMP METHOD</div>
+<h3>Transformation physique</h3>
+<p>Pour améliorer visuellement le physique sans entrer dans une phase extrême trop dure à tenir, avec une méthode durable et progressive.</p>
+<ul><li>10 semaines</li><li>4 séances / semaine</li><li>Cardio modéré</li><li>Nutrition selon taille et poids</li><li>Suivi hebdomadaire</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">L’option idéale pour transformer visuellement son physique avec une méthode durable.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/GQqhF" title="Acheter RECOMP METHOD homme">Acheter RECOMP METHOD</a></div>
+</div>
+</article>
+</div>
+</div>
+</section>
 
-<section class="section" id="bundle-women"><div class="container"><div class="heading"><div class="eyebrow">Pack complet femme</div><h2>Les 3 programmes femme en un seul pack</h2><p>Le meilleur rapport valeur / prix pour avoir l’ensemble de la méthode femme.</p></div><div class="bundle"><div><h3>SCULPT METHOD FEMME COMPLETE PACK</h3><p>Regroupe FEMME CUT METHOD, FEMME LEAN BULK METHOD et FEMME RECOMP METHOD dans une seule offre premium.</p><ul><li>FEMME CUT METHOD</li><li>FEMME LEAN BULK METHOD</li><li>FEMME RECOMP METHOD</li></ul></div><div class="bundle-price"><div class="old">87€</div><div class="now">59€</div><a class="btn btn-main" href="https://payhip.com/b/qT8e2">Acheter le pack complet femme</a></div></div></div></section>
+<section class="section" id="programs-women">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">Programmes femme</div>
+<h2>Une version adaptée au profil féminin</h2>
+<p>Calories de départ, repères de poids et structure adaptés, tout en gardant le même niveau de qualité et de clarté pour la transformation physique femme.</p>
+</div>
+<div class="programs">
+<article class="program">
+<div>
+<div class="tag">FEMME CUT METHOD</div>
+<h3>Sèche / perte de gras femme</h3>
+<p>Pour sécher proprement avec une structure adaptée au profil féminin, sans tomber dans l’excès, avec un programme clair et progressif.</p>
+<ul><li>8 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio détaillé</li><li>Repères adaptés selon taille et poids</li><li>Suivi hebdomadaire</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">Une vraie base pour perdre du gras et affiner le physique avec méthode.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/Vhvij" title="Acheter FEMME CUT METHOD">Acheter FEMME CUT METHOD</a></div>
+</div>
+</article>
 
-<section class="section" id="faq"><div class="container"><div class="heading"><div class="eyebrow">FAQ</div><h2>Questions fréquentes</h2></div><div class="faqgrid"><div class="faq"><h4>À qui s’adressent les programmes ?</h4><p>Aux personnes qui veulent une méthode claire pour sécher, prendre du muscle proprement ou transformer visuellement leur physique.</p></div><div class="faq"><h4>Le programme est-il adapté aux débutants ?</h4><p>Oui. La structure est pensée pour rester simple à comprendre tout en gardant un vrai niveau de détail.</p></div><div class="faq"><h4>Comment recevoir le programme après achat ?</h4><p>Après paiement, le programme est fourni automatiquement via la plateforme de paiement reliée au site. Pour le programme personnalisé, la finalisation se fait ensuite par e-mail.</p></div></div></div></section>
+<article class="program">
+<div>
+<div class="tag">FEMME LEAN BULK METHOD</div>
+<h3>Prise de masse propre femme</h3>
+<p>Pour construire du muscle proprement avec des repères adaptés, sans prise de gras inutile et avec un cadre structuré.</p>
+<ul><li>12 semaines</li><li>4 à 5 séances / semaine</li><li>Cardio léger</li><li>Repères adaptés selon taille et poids</li><li>Suivi complet</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">Une approche claire pour développer le physique de façon propre et progressive.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/jFWNK" title="Acheter FEMME LEAN BULK METHOD">Acheter FEMME LEAN BULK METHOD</a></div>
+</div>
+</article>
 
-<section class="section" id="contact"><div class="container"><div class="contact-box"><div class="eyebrow">Contact</div><h3>Une question avant de commencer ?</h3><p>Pour toute demande ou question, tu peux nous contacter par e-mail.</p><a class="contact-mail" href="mailto:sculptmethod.contact@gmail.com">sculptmethod.contact@gmail.com</a></div></div></section>
+<article class="program">
+<div>
+<div class="tag">FEMME RECOMP METHOD</div>
+<h3>Transformation physique femme</h3>
+<p>Pour transformer le physique de manière visuelle, progressive et durable avec un cadre simple, lisible et réaliste.</p>
+<ul><li>10 semaines</li><li>4 séances / semaine</li><li>Cardio modéré</li><li>Repères adaptés selon taille et poids</li><li>Suivi hebdomadaire</li></ul>
+</div>
+<div class="side">
+<div><div class="price">29€</div><div class="small">Idéal pour recomposer le physique et améliorer la silhouette avec méthode.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/XS1Bn" title="Acheter FEMME RECOMP METHOD">Acheter FEMME RECOMP METHOD</a></div>
+</div>
+</article>
+</div>
+</div>
+</section>
 
-<footer class="footer"><div class="container foot"><div>© SCULPT METHOD</div><a href="#top">Retour en haut</a></div></footer>
+<section class="section" id="custom">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">Programme personnalisé homme / femme</div>
+<h2>Un programme adapté à ton profil</h2>
+<p>Pour les personnes qui veulent une base plus directe selon leur taille, leur poids, leur objectif, leur niveau, ou une situation spécifique comme un surpoids, une reprise ou un besoin plus ciblé.</p>
+</div>
+<div class="programs">
+<article class="program">
+<div>
+<div class="tag">PERSONNALISÉ</div>
+<h3>Programme personnalisé homme / femme</h3>
+<p>Un cadre personnalisé construit à partir de tes informations pour t’orienter plus précisément selon ton profil physique, ton objectif et ton niveau.</p>
+<ul><li>Adaptation selon taille et poids</li><li>Prise en compte du niveau et de l’objectif</li><li>Possibilité de préciser si tu es en surpoids, en reprise, ou si tu as un point faible spécifique</li><li>Échange et finalisation par e-mail</li></ul>
+</div>
+<div class="side">
+<div><div class="price">39€</div><div class="small">Après achat, l’échange se fait par mail pour récupérer les informations nécessaires et construire le programme, pour homme ou pour femme.</div></div>
+<div class="cta"><a class="btn btn-main" href="https://payhip.com/b/oa9WR" title="Acheter le programme personnalisé homme et femme">Acheter le programme personnalisé</a></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section" id="bundle">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">Pack complet homme</div>
+<h2>Les 3 programmes homme en un seul pack</h2>
+<p>Le meilleur rapport valeur / prix pour avoir l’ensemble de la méthode homme de musculation, nutrition et transformation physique.</p>
+</div>
+<div class="bundle">
+<div>
+<h3>SCULPT METHOD COMPLETE PACK</h3>
+<p>Regroupe CUT METHOD, LEAN BULK METHOD et RECOMP METHOD dans une seule offre premium complète.</p>
+<ul><li>CUT METHOD</li><li>LEAN BULK METHOD</li><li>RECOMP METHOD</li></ul>
+</div>
+<div class="bundle-price">
+<div class="old">87€</div>
+<div class="now">59€</div>
+<a class="btn btn-main" href="https://payhip.com/b/AR5tU" title="Acheter le pack complet homme SCULPT METHOD">Acheter le pack complet</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="bundle-women">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">Pack complet femme</div>
+<h2>Les 3 programmes femme en un seul pack</h2>
+<p>Le meilleur rapport valeur / prix pour avoir l’ensemble de la méthode femme de musculation, nutrition et transformation physique.</p>
+</div>
+<div class="bundle">
+<div>
+<h3>SCULPT METHOD FEMME COMPLETE PACK</h3>
+<p>Regroupe FEMME CUT METHOD, FEMME LEAN BULK METHOD et FEMME RECOMP METHOD dans une seule offre premium complète.</p>
+<ul><li>FEMME CUT METHOD</li><li>FEMME LEAN BULK METHOD</li><li>FEMME RECOMP METHOD</li></ul>
+</div>
+<div class="bundle-price">
+<div class="old">87€</div>
+<div class="now">59€</div>
+<a class="btn btn-main" href="https://payhip.com/b/qT8e2" title="Acheter le pack complet femme SCULPT METHOD">Acheter le pack complet femme</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="seo-box">
+<div class="eyebrow">SCULPT METHOD</div>
+<h2>Programmes de musculation, nutrition et transformation physique en ligne</h2>
+<p>SCULPT METHOD est une plateforme dédiée aux programmes de musculation et nutrition pour homme et femme. L’objectif est de proposer des méthodes claires pour la perte de gras, la prise de masse propre, la recomposition corporelle et la transformation physique avec des programmes complets, lisibles et directement applicables.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="heading">
+<div class="eyebrow">FAQ</div>
+<h2>Questions fréquentes</h2>
+</div>
+<div class="faqgrid">
+<div class="faq"><h4>À qui s’adressent les programmes ?</h4><p>Aux personnes qui veulent une méthode claire pour sécher, prendre du muscle proprement ou transformer visuellement leur physique.</p></div>
+<div class="faq"><h4>Le programme est-il adapté aux débutants ?</h4><p>Oui. La structure est pensée pour rester simple à comprendre tout en gardant un vrai niveau de détail.</p></div>
+<div class="faq"><h4>Comment recevoir le programme après achat ?</h4><p>Après paiement, le programme est fourni automatiquement via la plateforme de paiement reliée au site. Pour le programme personnalisé, la finalisation se fait ensuite par e-mail.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="contact-box">
+<div class="eyebrow">Contact</div>
+<h3>Une question avant de commencer ?</h3>
+<p>Pour toute demande concernant un programme de musculation, un pack complet, un programme nutrition ou un programme personnalisé, tu peux nous contacter par e-mail.</p>
+<a class="contact-mail" href="mailto:sculptmethod.contact@gmail.com" title="Contacter SCULPT METHOD par e-mail">sculptmethod.contact@gmail.com</a>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container foot">
+<div>© SCULPT METHOD – Programmes de musculation, nutrition et transformation physique</div>
+<a href="#top" title="Retour en haut du site SCULPT METHOD">Retour en haut</a>
+</div>
+</footer>
 </body>
 </html>
